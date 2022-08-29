@@ -1,6 +1,6 @@
 HELP.md
-deepix-webapp/target/
-!.deepix-webapp/mvn/wrapper/maven-wrapper.jar
+target/
+!.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
@@ -15,7 +15,6 @@ deepix-webapp/target/
 
 ### IntelliJ IDEA ###
 .idea
-.deepix-webapp/.idea
 *.iws
 *.iml
 *.ipr
@@ -33,9 +32,3 @@ build/
 ### VS Code ###
 .vscode/
 
-/deepix-docker/milvus/db/
-/deepix-docker/milvus/logs/
-/deepix-docker/milvus/wal/
-/deepix-docker/tendis/db/
-/deepix-docker/tendis/dump/
-/deepix-docker/tendis/log/

@@ -1,0 +1,56 @@
+version: '3'
+networks:
+  deepix:
+services:
+  tendisplus:
+    image: tencentdbforkv/tendisplus:latest
+    container_name: tendisplus
+    ports:
+      - "51002:51002"
+    environment:
+      - REDIS_PASSWORD=tendisplustest
+      - CLUSTER=no
+      - PORT=51002
+    volumes:
+      - "./tendis:/data1/tendis/51002"
+    
+
+  tf-serving:
+    image: tensorflow/serving:latest
+    container_name: tf-serving
+    ports:
+      - "8500:8500"
+      - "8501:8501"
+    command: --model_config_file=/models/models.config --enable_batching=true --batching_parameters_file=/models/batching.conf
+    volumes:
+      - "./tf-serving/models:/models"
+   
+
+  milvus:
+    image: milvusdb/milvus:1.1.0-cpu-d050721-5e559c
+    container_name: milvus
+    ports:
+      - "19530:19530"
+      - "19121:19121"
+    volumes:
+      - "./milvus/db:/var/lib/milvus/db"
+      - "./milvus/conf:/var/lib/milvus/conf"
+      - "./milvus/logs:/var/lib/milvus/logs"
+      - "./milvus/wal:/var/lib/milvus/wal"
+
+
+  deepix-webapp:
+    image: deepix-webapp:1.0.0
+    environment:
+      - JAVA_OPTS="-Dfile.encoding=UTF-8"
+    container_name: deepix-webapp
+    ports:
+      - "8081:8081"
+    depends_on:
+      - tendisplus
+      - tf-serving
+      - milvus
+    links:
+      - tendisplus
+      - tf-serving
+      - milvus

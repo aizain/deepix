@@ -1,6 +1,7 @@
 <p align="center">
-<img src="https://imghost.ipv4.host/d/v7VJdXrW/2022/08/27/2bL3xlUj/icon180%20%281%29.png?download=1" width = "180" alt="pixivic_icon"/>
+<img src="https://raw.githubusercontent.com/OysterQAQ/Blog-Image/master/icon.png" width = "180" alt="pixivic_icon"/>
 </p>
+
 
 ## Introduction
 
@@ -14,7 +15,7 @@
 
 ## Architecture
 
-<img src="https://imghost.ipv4.host/d/v7VJdXrW/2022/08/27/OAlFB8lK/image-20220827172516288.png?download=1" alt="image-20220827172516288" style="border-radius:10px" />
+<img src="https://raw.githubusercontent.com/OysterQAQ/Blog-Image/master/arch.png" alt="image-20220827172516288" style="border-radius:10px" />
 
 ## Technical overview
 
@@ -43,6 +44,7 @@ docker-compose up -d
 基于restful api对外提供服务，以下是api文档（默认端口为8081，可在docker-compose.yaml中修改）：
 
 ### 获取插图特征向量
+
 #### 基本信息
 
 **Path：** /images/features
@@ -53,6 +55,7 @@ docker-compose up -d
 
 
 #### 请求参数
+
 **Headers**
 
 | 参数名称     | 参数值                | 是否必须 | 示例 | 备注 |
@@ -74,6 +77,7 @@ docker-compose up -d
   </thead><tbody className="ant-table-tbody"><tr key=0-0><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> message</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap"></span></td><td key=5></td></tr><tr key=0-1><td key=0><span style="padding-left: 0px"><span style="color: #8c8a8a"></span> data</span></td><td key=1><span>string</span></td><td key=2>非必须</td><td key=3></td><td key=4><span style="white-space: pre-wrap">token</span></td><td key=5></td></tr>
                </tbody>
               </table>
+
 
 
 
